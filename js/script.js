@@ -60,7 +60,7 @@ function createPostDiv(item) {
   divElement.appendChild(titleNew);
   divElement.appendChild(deleteBtn);
   postDiv.appendChild(divElement);
-  // console.log(divElement);
+  console.log(divElement);
 
   deleteBtn.addEventListener("click", function (e) {
     e.stopPropagation();
@@ -100,11 +100,11 @@ closeIcon.addEventListener("click", function () {
   postOverlay.classList.remove("activeOverlay");
 });
 
-overlayAddIcon.addEventListener('click',function(){
-  overlayAdd.classList.add("new-overlay")
-})
+overlayAddIcon.addEventListener("click", function () {
+  overlayAdd.classList.add("new-overlay");
+});
 
-form.addEventListener('submit', function(e){
+form.addEventListener("submit", function (e) {
   e.preventDefault();
   console.log(this[0].value);
 
@@ -120,11 +120,10 @@ form.addEventListener('submit', function(e){
   })
     .then((response) => response.json())
     .then((createdPost) => {
-      console.log(createdPost); 
+      console.log(createdPost);
 
       overlayAdd.classList.remove("new-overlay");
       this[0].value = " ";
       createPostDiv(createdPost);
     });
 });
-
